@@ -1,0 +1,15 @@
+name: gestao_vagas
+
+services:
+  postgres-gestao_vagas:
+      container_name: postgres-gestao_vagas
+      image: postgres:16.2
+      environment:
+        POSTGRES_USER: root
+        POSTGRES_PASSWORD: root
+        POSTGRES_DB: gestao_vagas_db
+      ports:
+        - "5432:5432"
+      volumes:
+        - ./docs/sql/gestao_vagas_db.sql:/docker-entrypoint-initdb.d/init.sql
+      command: postgres -c 'max_connections=1000'
