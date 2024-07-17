@@ -19,13 +19,14 @@ public class CompanyController {
     @Autowired
     private ICreateCompanyUseCase createCompanyUseCase;
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<Object> create(@Valid @RequestBody CompanyEntity companyEntity) {
         try {
             var result = this.createCompanyUseCase.execute(companyEntity);
             return ResponseEntity.status(HttpStatus.CREATED).body(result);
         } catch (Exception e) {
             Map<String, String> body = Map.of("message", e.getMessage());
+            System.out.println(e.getStackTrace().toString());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body);
         }
 

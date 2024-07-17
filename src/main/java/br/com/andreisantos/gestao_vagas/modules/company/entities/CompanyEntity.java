@@ -21,9 +21,7 @@ public class CompanyEntity {
     private String name;
     @Pattern(regexp = "\\S+", message = "Username should not be empty")
     private String username;
-    @Email(message = "Email should be valid")
-    private String email;
-    @Size(min = 8, max = 16, message = "Password should have between 8 and 16 characters")
+    @Size(min = 8, max = 150, message = "Password should have between 8 and 16 characters")
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$", message = "Password should have at least one lowercase letter, one uppercase letter and one number")
     private String password;
     private String description;

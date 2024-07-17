@@ -21,7 +21,7 @@ public class JobController {
     @Autowired
     private ICreateJobUseCase createJobUseCase;
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<Object> create(@Valid @RequestBody JobEntity jobEntity) {
         try {
             var result = this.createJobUseCase.execute(jobEntity);

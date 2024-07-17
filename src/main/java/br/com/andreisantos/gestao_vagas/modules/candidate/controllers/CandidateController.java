@@ -20,7 +20,7 @@ public class CandidateController {
     @Autowired
     private ICreateCandidateUseCase createCandidateUseCase;
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<Object> create(@Valid @RequestBody CandidateEntity candidateEntity) {
         try {
             var result = this.createCandidateUseCase.execute(candidateEntity);
