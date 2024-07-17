@@ -1,6 +1,9 @@
 package br.com.andreisantos.gestao_vagas.modules.company.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,6 +20,9 @@ public class JobEntity {
     private UUID id;
     private String description;
     private String benefits;
+    @NotBlank(message = "Title is mandatory")
+    @NotEmpty(message = "Title is mandatory")
+    @NotNull(message = "Title is mandatory")
     private String level;
 
     @ManyToOne()
